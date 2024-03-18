@@ -27,7 +27,6 @@ export class SuperheroDetailsComponent implements OnInit {
     this.http.get(url).subscribe({
       next : (data) => {
         this.superHeroDetails = data
-        console.log(this.superHeroDetails);
         this.loadingFlag = false;
       },
       error : (error) => {

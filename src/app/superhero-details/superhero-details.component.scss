@@ -14,39 +14,38 @@
   background-color: #333c4d;
   color: #e2e2e9;
 
-  .mat-mdc-card-image{
+  .mat-mdc-card-image {
     min-width: 400px;
   }
 
   .mat-mdc-card-subtitle {
-    color: #6a8ed0;
+    color: #769ee7;
     font-size: 16px;
   }
 
-  .powerstats{
+  .powerstats {
     text-align: center;
+    margin-bottom: 12px;
   }
 
-  .content{
+  .content {
     width: 100%;
 
-    .mat-mdc-card-header{
+    .mat-mdc-card-header {
       justify-content: center;
     }
 
-    .mat-mdc-card-title{
+    .mat-mdc-card-title {
       font-size: 48px;
       color: #e2e2e9;
     }
 
-    hr{
+    hr {
       margin: 14px 24px;
       border: 1px solid #172030;
       opacity: 0.5;
     }
-
   }
-
 }
 
 .power-stats {
@@ -71,13 +70,14 @@
 
   .stat-percentage {
     margin-left: 10px;
+    color: #e2e2e9;
   }
 }
 
 .mat-mdc-card-content {
-  margin: 0.8rem 8p;
+  margin: 0.8rem 8px;
 
-  p{
+  p {
     color: #e2e2e9;
   }
 }

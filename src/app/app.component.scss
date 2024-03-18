@@ -10,6 +10,10 @@
 
 .heading{
   cursor: pointer;
+  transition: 0.3s ease;
+  &:hover{
+    color:#ffb614;
+  }
 }
 
 .example-spacer {

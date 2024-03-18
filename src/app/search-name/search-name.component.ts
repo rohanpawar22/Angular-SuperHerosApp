@@ -1,8 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { Superhero } from '../shared/superhero-info';
-import { HttpClientWrapperService } from '../shared/services/http-client-wrapper.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-name',
@@ -12,11 +9,10 @@ import { Router } from '@angular/router';
 export class SearchNameComponent implements OnInit {
 
   searchForm: FormGroup;
-  superheroesList: Superhero[] = [];
 
   @Output() searchEvent = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder, private http : HttpClientWrapperService, private router : Router) {
+  constructor(private fb: FormBuilder) {
     this.searchForm = this.fb.group({
       searchKeyword: ['', [this.onlyLettersValidator()]]
     });
@@ -42,12 +38,7 @@ export class SearchNameComponent implements OnInit {
   }
 
   searchSuperHeroList() {
-    this.searchEvent.emit({"searchKeyword" : this.searchKeyword})
-  }
-
-  showDetails(id: any) {
-    console.log(id);
-    this.router.navigateByUrl(`details/${id}`)
+    this.searchEvent.emit({ "searchKeyword": this.searchKeyword })
   }
 
 }

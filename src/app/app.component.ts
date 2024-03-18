@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
+  
   title = 'Superheros';
   searchKeyword
 
