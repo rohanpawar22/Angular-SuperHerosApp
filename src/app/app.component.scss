@@ -1,0 +1,31 @@
+.nav{
+  height: 4rem;
+  position: sticky;
+}
+
+.logo{
+  height: 64%;
+  margin-right: 6px;
+}
+
+.heading{
+  cursor: pointer;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-icon {
+  padding: 0 14px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.4s ease;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.active{
+  opacity: 1;
+}

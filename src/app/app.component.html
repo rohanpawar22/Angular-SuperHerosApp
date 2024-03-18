@@ -1,0 +1,15 @@
+<nav class="nav">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <img class="logo" src="assets/superhero-svgrepo-com.svg" alt="logo">
+      <span class="heading" [routerLink]="['superhero-list']">SUPERHEROS</span>
+      <span class="example-spacer"></span>
+      <mat-icon class="example-icon" routerLinkActive="active" [routerLink]="['superhero-list']">home</mat-icon>
+      <!-- <mat-icon class="example-icon" routerLinkActive="active" [routerLink]="['name-search']">search</mat-icon> -->
+      <app-search-name (searchEvent)="getSearchKeyword($event)"></app-search-name>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</nav>
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,49 @@
+@if (loadingFlag) {
+<div class="loading-container">
+  <div class="loading-spinner"></div>
+</div>
+} @else {
+
+  <div class="container">
+    <mat-card class="example-card">
+
+      <img mat-card-image src="{{superHeroDetails.images.lg}}" alt="logo">
+
+      <div class="content">
+        <mat-card-header>
+          <mat-card-title>{{superHeroDetails.name}}</mat-card-title>
+        </mat-card-header>
+
+        <hr>
+
+        <mat-card-content>
+          <mat-card-subtitle>Base</mat-card-subtitle>
+          <p>{{superHeroDetails.work.base}}</p>
+        </mat-card-content>
+
+        <hr>
+
+        <mat-card-content>
+          <mat-card-subtitle>Occupation</mat-card-subtitle>
+          <p>{{superHeroDetails.work.occupation}}</p>
+        </mat-card-content>
+
+        <hr>
+
+        <mat-card-content>
+          <mat-card-subtitle class="powerstats">Power Stats</mat-card-subtitle>
+          <div class="power-stats">
+            <div *ngFor="let stat of superHeroDetails?.powerstats | keyvalue" class="stat-item">
+              <div class="stat-label">{{ stat.key }}</div>
+              <mat-progress-bar class="stat-progress-bar" mode="determinate" [value]="stat.value">
+              </mat-progress-bar>
+              <div class="stat-percentage">{{ stat.value }}%</div>
+            </div>
+          </div>
+        </mat-card-content>
+      </div>
+
+    </mat-card>
+  </div>
+
+}

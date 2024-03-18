@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-card {
+  width: 80%;
+  min-width: 734px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: -2px 2px 12px 0px rgba(0, 0, 0, 0.4);
+  background-color: #333c4d;
+  color: #e2e2e9;
+
+  .mat-mdc-card-image{
+    min-width: 400px;
+  }
+
+  .mat-mdc-card-subtitle {
+    color: #6a8ed0;
+    font-size: 16px;
+  }
+
+  .powerstats{
+    text-align: center;
+  }
+
+  .content{
+    width: 100%;
+
+    .mat-mdc-card-header{
+      justify-content: center;
+    }
+
+    .mat-mdc-card-title{
+      font-size: 48px;
+      color: #e2e2e9;
+    }
+
+    hr{
+      margin: 14px 24px;
+      border: 1px solid #172030;
+      opacity: 0.5;
+    }
+
+  }
+
+}
+
+.power-stats {
+  display: flex;
+  flex-direction: column;
+
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .stat-label {
+    flex: 1;
+    color: #e2e2e9;
+  }
+
+  .stat-progress-bar {
+    flex: 3;
+  }
+
+  .stat-percentage {
+    margin-left: 10px;
+  }
+}
+
+.mat-mdc-card-content {
+  margin: 0.8rem 8p;
+
+  p{
+    color: #e2e2e9;
+  }
+}
