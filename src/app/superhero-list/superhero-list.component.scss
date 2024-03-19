@@ -9,14 +9,14 @@
 .mat-mdc-card {
   width: 14%;
   min-width: 240px;
+  max-height: 520px;
   margin-top: 1rem;
   background-color: #333c4d;
   color: #e2e2e9;
   cursor: pointer;
   transition: 0.2s ease;
 
-
-  .more-details{
+  .more-details {
     display: none;
     position: absolute;
     text-align: center;
@@ -26,14 +26,15 @@
     padding: 4px 0;
     font-weight: bold;
     color: #e2e2e9;
-    background:rgb(51 60 77 / 70%);
+    background: rgb(51 60 77 / 70%);
   }
 
-  .mat-mdc-card-title, .first-subtitle{
+  .mat-mdc-card-title,
+  .first-subtitle {
     text-align: center;
   }
 
-  .base{
+  .base {
     display: flex;
     flex-direction: column;
     color: #9ca3b0;
@@ -43,14 +44,37 @@
     color: #e2e2e9;
   }
 
-
   &:hover {
     background-color: #3f51b5;
     box-shadow: 0px 2px 10px 0px rgb(64, 80, 181);
 
-    .more-details{
+    .more-details {
       display: block;
     }
+  }
+}
 
+.mat-mdc-card-actions {
+  justify-content: center;
+
+  button {
+    background-color: #333c4d;
+    color: #939aa7;
+    border: 2px solid #9ca3b0;
+    border-radius: 6px;
+    padding: 0px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+    &:hover {
+      background-color: #1d2636;
+      border-color: #c5c6cd;
+      color: #c5c6cd;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 }

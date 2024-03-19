@@ -16,6 +16,10 @@ export class SearchNameComponent implements OnInit {
     this.searchForm = this.fb.group({
       searchKeyword: ['', [this.onlyLettersValidator()]]
     });
+
+    this.searchForm.get('searchKeyword').valueChanges.subscribe(() => {
+      this.searchSuperHeroList();
+    });
   }
 
   ngOnInit(): void {
@@ -27,14 +31,10 @@ export class SearchNameComponent implements OnInit {
 
   onlyLettersValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
-      const regex = /^[a-zA-Z]*$/; // Regular expression to match only letters
+      const regex = /^[a-zA-Z\s]*$/;
       const valid = regex.test(control.value);
       return valid ? null : { invalidFormat: true };
     };
-  }
-
-  clearSearch() {
-    this.searchForm.reset();
   }
 
   searchSuperHeroList() {
