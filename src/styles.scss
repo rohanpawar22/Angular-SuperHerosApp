@@ -34,3 +34,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: h
 .mat-mdc-form-field-subscript-wrapper{
   display: none !important;
 }
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #172030;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4050b5;
+  opacity: 0.8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f9cf4f;
+  opacity: 1;
+}
