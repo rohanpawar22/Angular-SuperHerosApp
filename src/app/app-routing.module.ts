@@ -16,18 +16,34 @@ const routes: Routes = [
   {
     path : 'superhero-list',
     component : SuperheroListComponent,
+    data: {
+      title: 'Superhero List'
+    }
   },
   {
     path : 'details/:id',
     component : SuperheroDetailsComponent,
+    data: {
+      title: 'Details'
+    }
   },
   {
     path : 'name-search',
     component : SearchNameComponent
   },
   {
+    path : 'biography-details/:id',
+    loadChildren : () => import('./biography/biography.module').then(m => m.BiographyModule),
+    data: {
+      title: 'Biography Details'
+    }
+  },
+  {
     path : '**',
-    component : NotFoundComponent
+    component : NotFoundComponent,
+    data: {
+      title: 'Not Found'
+    }
   }
 
 ];
