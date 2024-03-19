@@ -37,7 +37,6 @@ export class SuperheroListComponent implements OnInit {
   }
 
   showDetails(id: any) {
-    console.log(id);
     this.router.navigateByUrl(`details/${id}`)
   }
 
