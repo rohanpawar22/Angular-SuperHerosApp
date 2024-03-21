@@ -14,8 +14,24 @@
   background-color: #333c4d;
   color: #e2e2e9;
 
+  .logo-heading{
+    position: relative;
+    display: flex;
+    .heroName{
+      position: absolute;
+      text-align: center;
+      bottom: 0;
+      font-size: 46px;
+      padding: 20px 0;
+      font-weight: bold;
+      color: #e2e2e9;
+      width: 100%;
+      background: rgb(2 2 3 / 72%);
+    }
+  }
+
   .mat-mdc-card-image {
-    min-width: 400px;
+    width: 400px;
   }
 
   .mat-mdc-card-subtitle {

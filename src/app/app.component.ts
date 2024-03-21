@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { SearchService } from './shared/services/search.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs';
+import { IntroJsService } from './shared/intro-js/intro-js.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit{
   
+  showSearch = false;
   title = 'Superheros';
   searchKeyword
 
@@ -18,7 +21,8 @@ export class AppComponent implements OnInit{
     private searchService : SearchService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private titleService: Title){}
+    private titleService: Title,
+    private introService : IntroJsService){}
 
   ngOnInit(): void {
     this.router.events.pipe(
@@ -26,7 +30,9 @@ export class AppComponent implements OnInit{
     ).subscribe(() => {  
       const rt = this.getChild(this.activatedRoute);  
       rt.data.subscribe(data => {  
-        this.titleService.setTitle(data.title)});  
+        this.titleService.setTitle(data.title)
+        this.showSearch = data.title == 'Superhero List' ? true : false;
+      });
     });  
   }
 
@@ -41,6 +47,10 @@ export class AppComponent implements OnInit{
   getSearchKeyword(e){
     this.searchKeyword = e.searchKeyword
     this.searchService.setSearchData(this.searchKeyword);
+  }
+
+  ngAfterViewInit(): void {
+    // this.introService.introAboutApp()
   }
 
 }

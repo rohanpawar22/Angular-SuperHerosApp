@@ -7,61 +7,61 @@
 <div class="container">
     <mat-card class="example-card">
 
-        <img mat-card-image src="{{superHeroDetails.images.lg}}" alt="logo">
+        <div class="logo-heading">
+            <img id="step9" mat-card-image src="{{superHeroDetails.images.lg}}" alt="logo">
+            <span id="step10" class="heroName">{{superHeroDetails.name}}</span>
+        </div>
+        
 
-        <div class="content">
+        <div class="content" id="step11">
             <mat-card-header>
-                <mat-card-title>{{superHeroDetails.name}}</mat-card-title>
+                <mat-card-title>Biography</mat-card-title>
             </mat-card-header>
 
-            <hr>
-
-            <mat-card-content>
-                <mat-card-subtitle>aliases</mat-card-subtitle>
-                <p>{{superHeroDetails.biography.aliases}}</p>
-            </mat-card-content>
-
-
-            <hr>
-
-            <mat-card-content>
-                <mat-card-subtitle>alignment</mat-card-subtitle>
-                <p>{{superHeroDetails.biography.alignment}}</p>
-            </mat-card-content>
-
-            <hr>
-
-            <mat-card-content>
-                <mat-card-subtitle>alterEgos</mat-card-subtitle>
-                <p>{{superHeroDetails.biography.alterEgos}}</p>
-            </mat-card-content>
 
             <hr>
             <mat-card-content>
-                <mat-card-subtitle>firstAppearance</mat-card-subtitle>
-                <p>{{superHeroDetails.biography.firstAppearance}}</p>
-            </mat-card-content>
-
-            <hr>
-            <mat-card-content>
-                <mat-card-subtitle>fullName</mat-card-subtitle>
+                <mat-card-subtitle>Full Name</mat-card-subtitle>
                 <p>{{superHeroDetails.biography.fullName}}</p>
             </mat-card-content>
 
             <hr>
             <mat-card-content>
-                <mat-card-subtitle>placeOfBirth</mat-card-subtitle>
+                <mat-card-subtitle>Place Of Birth</mat-card-subtitle>
                 <p>{{superHeroDetails.biography.placeOfBirth}}</p>
+            </mat-card-content>
+
+
+            <hr>
+            <mat-card-content>
+                <mat-card-subtitle>First Appearance</mat-card-subtitle>
+                <p>{{superHeroDetails.biography.firstAppearance}}</p>
             </mat-card-content>
 
             <hr>
             <mat-card-content>
-                <mat-card-subtitle>publisher</mat-card-subtitle>
-                <p>{{superHeroDetails.biography.publisher}}</p>
+                <mat-card-subtitle>Aliases</mat-card-subtitle>
+                <p>{{superHeroDetails.biography.aliases}}</p>
             </mat-card-content>
 
 
+            <hr>
+            <mat-card-content>
+                <mat-card-subtitle>Alignment</mat-card-subtitle>
+                <p>{{superHeroDetails.biography.alignment}}</p>
+            </mat-card-content>
 
+            <hr>
+            <mat-card-content>
+                <mat-card-subtitle>Alter Egos</mat-card-subtitle>
+                <p>{{superHeroDetails.biography.alterEgos}}</p>
+            </mat-card-content>
+
+            <hr>
+            <mat-card-content>
+                <mat-card-subtitle>Publisher</mat-card-subtitle>
+                <p>{{superHeroDetails.biography.publisher}}</p>
+            </mat-card-content>
 
         </div>
 

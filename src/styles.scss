@@ -1,14 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden; background: #172030;}
+// html,
+// body {
+//   height: 100%;
+// }
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+  background: #172030;
+}
 
-
-.container{
+.container {
   height: calc(100vh - 4rem);
   overflow: auto;
 }
 
+
+// loader styles start
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -27,34 +37,119 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: h
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-.mat-mdc-form-field-subscript-wrapper{
-  display: none !important;
-}
+// loader styles end
 
 
-
-/* width */
+// scrollbar styles start
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #172030;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #4050b5;
+  cursor: pointer;
+  background: #3f51b5;
   opacity: 0.8;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #f9cf4f;
   opacity: 1;
+}
+// scrollbar styles end
+
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}
+
+
+// Base styles for the Search field start
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #1d2636 !important;
+  border-radius: 20px !important;
+
+  // Styles for the input
+  .mdc-text-field__input {
+    color: rgb(197 198 205) !important;
+    caret-color: #4e69ff !important;
+  }
+
+  // Styles for the floating label
+  .mdc-floating-label {
+    color: #c5c6cd !important;
+  }
+
+  // Hover styles for the floating label
+  &:not(.mdc-text-field--focused):hover .mdc-floating-label {
+    background-color: #1d2636 !important;
+    border-radius: 20px !important;
+    color: rgb(197 198 205) !important;
+  }
+
+  // Styles for the focused floating label
+  &.mdc-text-field--focused .mdc-floating-label,
+  &.mdc-text-field--focused .mdc-floating-label--float-above {
+    color: #4e69ff !important;
+  }
+}
+// Base styles for the Search field end
+
+
+
+// Tooltip intoJs popup
+.introjs-tooltip {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 16px 0px #0000008f;
+}
+
+.introjs-tooltipbuttons {
+  background: #dcdcdc;
+
+  .introjs-button {
+    text-shadow: none;
+    color: #ffffff;
+    background-color: #485dd2;
+    transition: background-color 0.3s ease;
+    border: none;
+
+    &:hover {
+      background-color: #3042a6;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .introjs-disabled {
+    color: #ffffff;
+    border-color: #ced4da;
+    cursor: not-allowed;
+    background-color: #6c757d;
+
+    &:hover {
+      background-color: #6c757d;
+    }
+  }
+}
+
+//close Button
+.introjs-skipbutton:hover {
+  color: #485dd2;
+  transition: color 0.4s ease;
+}
+
+.skip-btn {
+  cursor: pointer;
 }

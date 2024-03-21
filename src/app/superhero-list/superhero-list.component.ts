@@ -1,15 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClientWrapperService } from '../shared/services/http-client-wrapper.service';
 import { Router } from '@angular/router';
 import { Superhero } from '../shared/superhero-info';
 import { SearchService } from '../shared/services/search.service';
+import { IntroJsService } from '../shared/intro-js/intro-js.service';
 
 @Component({
   selector: 'app-superhero-list',
   templateUrl: './superhero-list.component.html',
   styleUrl: './superhero-list.component.scss'
 })
-export class SuperheroListComponent implements OnInit, OnDestroy {
+export class SuperheroListComponent implements OnInit, OnDestroy, AfterViewInit {
 
   searchKey
   superheroesList: Superhero[] = [];
@@ -18,7 +19,8 @@ export class SuperheroListComponent implements OnInit, OnDestroy {
 
   constructor(private http: HttpClientWrapperService,
     private router: Router,
-    private searchService : SearchService
+    private searchService : SearchService,
+    private introService : IntroJsService
   ) {
    }
 
@@ -30,12 +32,16 @@ export class SuperheroListComponent implements OnInit, OnDestroy {
     }); 
   }
 
+  ngAfterViewInit(): void {
+    this.introService.introAboutApp();
+  }
+
   ngOnDestroy(): void {
     if (this.searchKey) {
       this.searchKey.unsubscribe();
     }
   }
-
+  
   filterSuperheroesList() {
     if (!this.searchKey || this.searchKey.trim() === '') {
       this.superheroesList = [...this.originalSuperheroesList];
