@@ -58,8 +58,6 @@ export class IntroJsService {
           this.showIntro = false;
         }).onexit(() => {
           this.showIntro = false;
-          this.showDetailsIntro = false;
-          this.showBiographyIntro = false;
         }).start();
 
         clearTimeout(introTimeout);
@@ -99,9 +97,7 @@ export class IntroJsService {
         }).oncomplete(() => {
           this.showDetailsIntro = false;
         }).onexit(() => {
-          this.showIntro = false;
           this.showDetailsIntro = false;
-          this.showBiographyIntro = false;
         }).start();
 
         clearTimeout(introTimeout);
@@ -141,8 +137,6 @@ export class IntroJsService {
         }).oncomplete(() => {
           this.showBiographyIntro = false;
         }).onexit(() => {
-          this.showIntro = false;
-          this.showDetailsIntro = false;
           this.showBiographyIntro = false;
         }).start();
 

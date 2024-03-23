@@ -75,6 +75,12 @@ body {
 
 
 // Base styles for the Search field start
+
+.mat-mdc-text-field-wrapper{
+  height: 52px !important;
+}
+
+
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: #1d2636 !important;
   border-radius: 20px !important;

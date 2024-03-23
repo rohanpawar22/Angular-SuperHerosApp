@@ -14,8 +14,12 @@ export class SuperheroDetailsComponent implements OnInit, AfterViewInit {
   superHeroDetails
   loadingFlag = false;
 
-  constructor(private http : HttpClientWrapperService, private route : ActivatedRoute, private introService : IntroJsService,
-    private router : Router){}
+  constructor(
+    private http : HttpClientWrapperService,
+    private route : ActivatedRoute,
+    private introService : IntroJsService,
+    private router : Router
+    ){}
 
   ngOnInit(): void {
     this.fetchDetailsFromId()

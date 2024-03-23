@@ -4,18 +4,20 @@ import { Router } from '@angular/router';
 import { Superhero } from '../shared/superhero-info';
 import { SearchService } from '../shared/services/search.service';
 import { IntroJsService } from '../shared/intro-js/intro-js.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-superhero-list',
   templateUrl: './superhero-list.component.html',
   styleUrl: './superhero-list.component.scss'
 })
-export class SuperheroListComponent implements OnInit, OnDestroy, AfterViewInit {
+export class SuperheroListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   searchKey
   superheroesList: Superhero[] = [];
   originalSuperheroesList: Superhero[] = [];
   loadingFlag = false;
+  searchDataSubscription: Subscription;
 
   constructor(private http: HttpClientWrapperService,
     private router: Router,
@@ -26,20 +28,20 @@ export class SuperheroListComponent implements OnInit, OnDestroy, AfterViewInit 
 
   ngOnInit(): void {
     this.fetchSuperHeroList();
-    this.searchService.searchData$.subscribe(data => {
+    this.searchDataSubscription = this.searchService.searchData$.subscribe(data => {
       this.searchKey = data;
       this.filterSuperheroesList();
     }); 
   }
 
-  ngAfterViewInit(): void {
-    this.introService.introAboutApp();
+  ngOnDestroy(): void {
+    if (this.searchDataSubscription) {
+      this.searchDataSubscription.unsubscribe();
+    }
   }
 
-  ngOnDestroy(): void {
-    if (this.searchKey) {
-      this.searchKey.unsubscribe();
-    }
+  ngAfterViewInit(): void {
+    this.introService.introAboutApp();
   }
   
   filterSuperheroesList() {

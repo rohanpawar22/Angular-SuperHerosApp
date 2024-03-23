@@ -1,14 +1,16 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search-name',
   templateUrl: './search-name.component.html',
   styleUrl: './search-name.component.scss'
 })
-export class SearchNameComponent implements OnInit {
+export class SearchNameComponent implements OnInit, OnDestroy {
 
   searchForm: FormGroup;
+  valueChangesSubscription : Subscription;
 
   @Output() searchEvent = new EventEmitter<any>();
 
@@ -17,12 +19,18 @@ export class SearchNameComponent implements OnInit {
       searchKeyword: ['', [this.onlyLettersValidator()]]
     });
 
-    this.searchForm.get('searchKeyword').valueChanges.subscribe(() => {
+    this.valueChangesSubscription = this.searchForm.get('searchKeyword').valueChanges.subscribe(() => {
       this.searchSuperHeroList();
     });
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    if (this.valueChangesSubscription) {
+      this.valueChangesSubscription.unsubscribe();
+    }
   }
 
   get searchKeyword() {

@@ -81,3 +81,27 @@
     color: #e2e2e9;
   }
 }
+
+@media only screen and (max-width: 767px) {
+
+  .example-card {
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px;
+
+    .content{
+      .mat-mdc-card-title{
+        font-size: 32px;
+      }
+    }
+
+
+    .mat-mdc-card-image {
+      width: 320px;
+    }
+  }
+}

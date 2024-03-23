@@ -9,7 +9,8 @@
   filter: invert(1);
 }
 
-.heading{
+.app-heading{
+  display: block;
   cursor: pointer;
   transition: 0.3s ease;
   &:hover{
@@ -19,6 +20,10 @@
 
 .example-spacer {
   flex: 1 1 auto;
+}
+
+.example-spacer-2{
+  flex: none;
 }
 
 .example-icon {
@@ -33,4 +38,15 @@
 
 .active{
   opacity: 1;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .app-heading{
+    display: none;
+  }
+
+  .example-spacer-2{
+    flex: 1 1 auto;
+  }
 }

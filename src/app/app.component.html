@@ -1,15 +1,20 @@
 <nav class="nav">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <img class="logo" src="assets/superhero-svgrepo-com.svg" alt="logo">
-      <span class="heading" [routerLink]="['superhero-list']" id="step1">SUPERHEROS</span>
+      <img class="logo" [routerLink]="['superhero-list']" src="assets/superhero-svgrepo-com.svg" alt="logo">
+      <span class="app-heading" [routerLink]="['superhero-list']" id="step1">SUPERHEROS</span>
       <span class="example-spacer"></span>
-      <mat-icon class="example-icon" routerLinkActive="active" [routerLink]="['superhero-list']" id="step2">home</mat-icon>
+
       <div id="step3">
-      @if(showSearch){
-          <app-search-name (searchEvent)="getSearchKeyword($event)"></app-search-name>
-      }
-    </div>
+        @if(showSearch){
+            <app-search-name (searchEvent)="getSearchKeyword($event)"></app-search-name>
+        }
+      </div>
+
+      <span class="example-spacer-2"></span>
+
+      <mat-icon class="example-icon" routerLinkActive="active" [routerLink]="['superhero-list']" id="step2">home</mat-icon>
+     
     </mat-toolbar-row>
   </mat-toolbar>
 </nav>
