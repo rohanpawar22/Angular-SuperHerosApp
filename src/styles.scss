@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+
 body {
   height: 100%;
   margin: 0;
@@ -12,6 +13,7 @@ body {
   height: calc(100vh - 4rem);
   overflow: auto;
 }
+
 
 // loader styles start
 .loading-container {
@@ -41,6 +43,7 @@ body {
 }
 // loader styles end
 
+
 // scrollbar styles start
 ::-webkit-scrollbar {
   width: 0.5rem;
@@ -62,20 +65,24 @@ body {
 }
 // scrollbar styles end
 
+
 .mat-mdc-form-field-subscript-wrapper {
   display: none !important;
 }
 
+
 // Base styles for the Search field start
 
-.mat-mdc-text-field-wrapper {
+.mat-mdc-text-field-wrapper{
   height: 52px !important;
 }
 
+
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: #1d2636 !important;
-  border-radius: 20px !important;
-
+  border-radius: 25px !important;
+  opacity: 0.5;
+  
   // Styles for the input
   .mdc-text-field__input {
     color: rgb(197 198 205) !important;
@@ -101,6 +108,8 @@ body {
   }
 }
 // Base styles for the Search field end
+
+
 
 // Tooltip intoJs popup
 .introjs-tooltip {
