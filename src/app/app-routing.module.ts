@@ -4,6 +4,7 @@ import { SuperheroListComponent } from './superhero-list/superhero-list.componen
 import { SearchNameComponent } from './search-name/search-name.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SuperheroDetailsComponent } from './superhero-details/superhero-details.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
 
@@ -50,6 +51,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{provide : LocationStrategy, useClass: HashLocationStrategy}]
 })
 export class AppRoutingModule { }

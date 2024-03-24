@@ -61,7 +61,7 @@ export class IntroJsService {
         }).start();
 
         clearTimeout(introTimeout);
-      }, 200);
+      }, 300);
     }
 
   }
@@ -101,7 +101,7 @@ export class IntroJsService {
         }).start();
 
         clearTimeout(introTimeout);
-      }, 200);
+      }, 300);
     }
 
   }
@@ -141,7 +141,7 @@ export class IntroJsService {
         }).start();
 
         clearTimeout(introTimeout);
-      }, 200);
+      }, 300);
     }
 
   }
