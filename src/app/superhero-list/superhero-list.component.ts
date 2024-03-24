@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { HttpClientWrapperService } from '../shared/services/http-client-wrapper.service';
 import { Router } from '@angular/router';
 import { Superhero } from '../shared/superhero-info';
@@ -16,22 +16,24 @@ export class SuperheroListComponent implements OnInit, AfterViewInit, OnDestroy 
   searchKey
   superheroesList: Superhero[] = [];
   originalSuperheroesList: Superhero[] = [];
-  loadingFlag = false;
   searchDataSubscription: Subscription;
+
+  loadingFlag = false;
+
+  @ViewChild('contentBox', { static: true }) contentBoxRef!: ElementRef;
 
   constructor(private http: HttpClientWrapperService,
     private router: Router,
-    private searchService : SearchService,
-    private introService : IntroJsService
-  ) {
-   }
+    private searchService: SearchService,
+    private introService: IntroJsService
+  ) { }
 
   ngOnInit(): void {
     this.fetchSuperHeroList();
     this.searchDataSubscription = this.searchService.searchData$.subscribe(data => {
       this.searchKey = data;
       this.filterSuperheroesList();
-    }); 
+    });
   }
 
   ngOnDestroy(): void {
@@ -42,8 +44,51 @@ export class SuperheroListComponent implements OnInit, AfterViewInit, OnDestroy 
 
   ngAfterViewInit(): void {
     this.introService.introAboutApp();
+    this.contentBoxRef.nativeElement.addEventListener('scroll', this.onContentBoxScroll.bind(this));
   }
-  
+
+
+  onContentBoxScroll(event: Event) {
+    const contentBox = event.target as HTMLElement;
+    const scrollPosition = Math.ceil(contentBox.scrollTop + contentBox.clientHeight);
+    const scrollHeight = contentBox.scrollHeight;
+    const scrollPercentage = (scrollPosition / scrollHeight) * 100;
+    const topButton = document.getElementById('topButton');
+    const downButton = document.getElementById('downButton');
+    if (scrollPosition === 0) {
+      topButton.style.display = 'none';
+      downButton.style.display = 'none';
+    }
+    if (topButton) {
+      if (scrollPercentage >= 2) {
+        topButton.style.display = 'block';
+      } else {
+        topButton.style.display = 'none';
+      }
+    }
+    if(downButton){
+      if (scrollPercentage >= 2 && scrollPercentage <= 99) {
+        downButton.style.display = 'block';
+      } else {
+        downButton.style.display = 'none';
+      }
+    }
+  }
+
+  scrollToTop() {
+    const contentBox = document.querySelector('.container');
+    if (contentBox) {
+      contentBox.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  scrollToDown(){
+    const contentBox = document.querySelector('.container');
+    if (contentBox) {
+      contentBox.scrollTo({ top: contentBox.scrollHeight, behavior: 'smooth' });
+    }
+  }
+
   filterSuperheroesList() {
     if (!this.searchKey || this.searchKey.trim() === '') {
       this.superheroesList = [...this.originalSuperheroesList];
@@ -60,7 +105,7 @@ export class SuperheroListComponent implements OnInit, AfterViewInit, OnDestroy 
     this.http.get(url).subscribe({
       next: (data) => {
         this.superheroesList = data
-        this.originalSuperheroesList = data; 
+        this.originalSuperheroesList = data;
         this.loadingFlag = false;
       },
       error: (error) => {
@@ -74,7 +119,7 @@ export class SuperheroListComponent implements OnInit, AfterViewInit, OnDestroy 
     this.router.navigateByUrl(`details/${id}`)
   }
 
-  showBiography(id : any){
+  showBiography(id: any) {
     this.router.navigateByUrl(`biography-details/${id}`)
   }
 

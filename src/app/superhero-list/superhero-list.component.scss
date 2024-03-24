@@ -93,6 +93,53 @@
 }
 
 
+.scroll-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.scroll-top-button {
+  bottom: 80px;
+  right: 18px;
+}
+
+.scroll-down-button {
+  bottom: 20px;
+  right: 18px;
+}
+
+.scroll-button {
+  display: none;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background-color: #c5c6cd;
+  color: #c5c6cd;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.scroll-button:hover {
+  background-color: #3f51b5;
+}
+
+.scroll-button:hover img {
+  filter: invert(1);
+}
+
+
+
 @media only screen and (max-width: 767px) {
   .example-card:last-child {
     margin-bottom: 2rem;

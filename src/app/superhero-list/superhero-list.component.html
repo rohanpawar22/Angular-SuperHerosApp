@@ -1,47 +1,54 @@
-<div class="container">
+<div class="container" #contentBox>
+
   @if (loadingFlag) {
   <div class="loading-container">
     <div class="loading-spinner"></div>
   </div>
-  } @else if(superheroesList.length <= 0) {
-    <div class="loading-container">
-      <h4 style="color: #c5c6cd;">No Results Found!</h4>
-    </div>
-  }
- @else {
-  @for (superhero of superheroesList; let i =$index; track superhero.id ) {
-    <mat-card class="example-card" (click)="showDetails(superhero.id)" id="step4">
-      <span class="more-details">Click For Details</span>
-      <img mat-card-image src={{superhero.images.lg}} alt={{superhero.name}}>
-      <div class="card--content">
-        <mat-card-content>
-          <mat-card-title>{{superhero.name | uppercase }}</mat-card-title>
-          <!-- <mat-card-subtitle class="first-subtitle">
+  } @else if(superheroesList.length <= 0) { <div class="loading-container">
+    <h4 style="color: #c5c6cd">No Results Found!</h4>
+</div>
+} @else {
+
+@for (superhero of superheroesList; let i =$index; track superhero.id ) {
+<mat-card class="example-card" (click)="showDetails(superhero.id)" id="step4">
+  <span class="more-details">Click For Details</span>
+  <img mat-card-image src="{{ superhero.images.lg }}" alt="{{ superhero.name }}" />
+  <div class="card--content">
+    <mat-card-content>
+      <mat-card-title>{{ superhero.name | uppercase }}</mat-card-title>
+      <!-- <mat-card-subtitle class="first-subtitle">
             <span class="base">({{superhero.appearance.gender | gender}})</span>
           </mat-card-subtitle> -->
-          <mat-card-subtitle class="first-subtitle">
-            <div class="base">
-              @for(baseWord of superhero.work.base | splitBase; track baseWord) {
-              <span>{{baseWord}}</span>
-              }
-            </div>
-          </mat-card-subtitle>
-          <mat-card-subtitle class="first-subtitle">
-            <div class="base">
-              @for(occupationWord of superhero.work.occupation | splitBase; track occupationWord) {
-              <span>{{occupationWord}}</span>
-              }
-            </div>
-          </mat-card-subtitle>
-        </mat-card-content>
-        <mat-card-actions>
-          <button id="step5" mat-button (click)="showBiography(superhero.id); $event.stopPropagation()"><mat-icon>info</mat-icon>Biography</button>
-        </mat-card-actions>
-      </div>
-  
-    </mat-card>
-    }
+      <mat-card-subtitle class="first-subtitle">
+        <div class="base">
+          @for(baseWord of superhero.work.base | splitBase; track baseWord) {
+          <span>{{ baseWord }}</span>
+          }
+        </div>
+      </mat-card-subtitle>
+      <mat-card-subtitle class="first-subtitle">
+        <div class="base">
+          @for(occupationWord of superhero.work.occupation | splitBase; track occupationWord) {
+          <span>{{ occupationWord }}</span>
+          }
+        </div>
+      </mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions>
+      <button id="step5" mat-button (click)="showBiography(superhero.id); $event.stopPropagation()">
+        <mat-icon>info</mat-icon>Biography
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>
+}
 
-  }
+<div class="scroll-buttons">
+  <button id="topButton" class="scroll-button scroll-top-button" (click)="scrollToTop()"><img src="/assets/caret-up.svg"
+      alt="Up"></button>
+  <button id="downButton" class="scroll-button scroll-down-button" (click)="scrollToDown()"><img src="/assets/caret-down.svg"
+      alt="Down"></button>
+</div>
 
+}
 </div>
