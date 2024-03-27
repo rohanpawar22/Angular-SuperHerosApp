@@ -13,6 +13,8 @@ import { Subscription } from 'rxjs';
 })
 export class SuperheroListComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  defaultImage : string = '.assets/ImgNotAvailable.jpeg';
+
   searchKey
   superheroesList: Superhero[] = [];
   originalSuperheroesList: Superhero[] = [];
